@@ -1,4 +1,4 @@
-import { Rect } from ".";
+import { Entity, Rect } from ".";
 import { drawRectangle, drawLine } from "../basicDrawingFunctions";
 import { cellsInLevel } from "../main";
 
@@ -10,12 +10,10 @@ export class Cell extends Rect {
     }
 }
 
-export class Field {
-    constructor(x, y, width, height, rowsCount, columnsCount, cellsSize, color) {
-        super(x, y, width, height, color);
+export class Field extends Entity {
+    constructor(rowsCount, columnsCount) {
         this.rowsCount = rowsCount;
         this.columnsCount = columnsCount;
-        this.cellsSize = cellsSize;
     }
 
     building() {
@@ -31,20 +29,20 @@ export class Field {
     
         this.width = this.columnsCount * this.cellsSize;
         this.height = this.rowsCount * this.cellsSize;
-        x = (canvas.width - this.width) / 2;
-        y = (canvas.height - this.height) / 2;
+        this.x = (canvas.width - this.width) / 2;
+        this.y = (canvas.height - this.height) / 2;
     
-        let xCell = x;
-        let yCell = y; 
+        let xCell = this.x;
+        let yCell = this.y; 
         for (let i = 0; i < this.rowsCount; i++) {
-            for (let l = 0; l < columnsCount; l++) {
+            for (let l = 0; l < this.columnsCount; l++) {
                 cellsInLevel.push( addEntity(new Cell(xCell, yCell, this.cellsSize, this.cellsSize, i, l)) );
     
-                xCell += cellsSize;
+                xCell += this.cellsSize;
             }
 
-            yCell += cellsSize; 
-            xCell -= columnsCount * cellsSize;
+            yCell += this.cellsSize; 
+            xCell -= this.columnsCount * this.cellsSize;
         }
     }
 

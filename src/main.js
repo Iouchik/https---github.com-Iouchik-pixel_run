@@ -1,6 +1,5 @@
 import { ctx } from "./canvas";
 import { addEntity, entities } from "./entity";
-import { Player } from "./entities/Player";
 import { Field } from "./entities/Field";
 
 const FPS = 60;
@@ -17,5 +16,5 @@ function run() {
     }, 1000 / 60)
 }
 
-addEntity(new Field)
+addEntity(new Field(10, 10));
 run();
