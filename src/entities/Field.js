@@ -1,6 +1,8 @@
 import { Entity, Rect } from ".";
 import { drawRectangle, drawLine } from "../basicDrawingFunctions";
-import { cellsInLevel } from "../main";
+import { addEntity } from "../entity";
+
+export let cellsInLevel = [];
 
 export class Cell extends Rect {
     constructor(x, y, width, height, rowNumber, columnNumber, color = null) {
@@ -12,6 +14,7 @@ export class Cell extends Rect {
 
 export class Field extends Entity {
     constructor(rowsCount, columnsCount) {
+        super();
         this.rowsCount = rowsCount;
         this.columnsCount = columnsCount;
     }
@@ -58,7 +61,7 @@ export class Field extends Entity {
             drawLine(color, this.x - lineWidth / 2, horizontalLinesPositions, this.x + this.width, horizontalLinesPositions, lineWidth);
             horizontalLinesPositions += this.cellsSize;
         }
-        for (let i = 0; i < field.columnsCount; i++) {
+        for (let i = 0; i < this.columnsCount; i++) {
             drawLine(color, verticalLinesPositions, this.y - lineWidth / 2, verticalLinesPositions, this.y + this.height, lineWidth);
             verticalLinesPositions += this.cellsSize;
         }

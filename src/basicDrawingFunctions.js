@@ -1,3 +1,5 @@
+import { ctx } from "./canvas";
+
 export function drawRectangle(color, width, height, x, y, transparency = 1) {
 	ctx.globalAlpha = transparency;
     ctx.fillStyle = color;

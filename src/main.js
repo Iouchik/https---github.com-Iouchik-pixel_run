@@ -4,14 +4,12 @@ import { Field } from "./entities/Field";
 
 const FPS = 60;
 
-export let cellsInLevel = [];  
-
 function run() {
     setInterval(() => {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         for (const entity of entities) {
-            entity.update();
-            entity.draw();
+            entity.updating();
+            entity.drawing();
         }
     }, 1000 / 60)
 }

@@ -5,14 +5,13 @@ export class Entity {
         this.toDelete = false;
     }
 
-    update() {}
+    updating() {}
 
-    draw() {}
+    drawing() {}
 }
 
 export class Rect extends Entity {
     constructor(x, y, width, height, color) {
-        super();
         this.x = x;
         this.y = y;
         this.width = width;
