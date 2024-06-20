@@ -12,6 +12,7 @@ export class Entity {
 
 export class Rect extends Entity {
     constructor(x, y, width, height, color) {
+        super();
         this.x = x;
         this.y = y;
         this.width = width;

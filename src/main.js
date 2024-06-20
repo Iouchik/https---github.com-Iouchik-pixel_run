@@ -13,6 +13,7 @@ function run() {
         }
     }, 1000 / 60)
 }
-
-addEntity(new Field(10, 10));
+let field = new Field(10, 10);
+addEntity(field);
+field.building();
 run();
